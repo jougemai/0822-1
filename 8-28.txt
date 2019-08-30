@@ -1,0 +1,65 @@
+桌面系统（个人）
+	win
+	mac
+Apache(10W人以下访问)/nginx(10W人以上访问)解析PHP语言发送过来的请求
+tomcat(10W人以下访问)/weblogic(10W人以上访问) 解析jave(jdk:java开发的程序包)
+iis解析c#
+lamp-Linux\Apache\MYSQL\php
+lnmp-Linux\NGINX\MYSQL\php
+
+
+mac系统的课执行文件格式   bmg .pkg
+	xlient mac软件专门软件
+
+操作系统分类
+服务器系统(为其他电脑提供服务，安全稳定，能为多用户提供服务)
+	Linux
+		RedHat
+		Centos	
+		Ubuntu
+		SUSE
+		宏碁
+	win server
+	客户端与服务器的概念(通信行业的客户端都用Linux系统)
+嵌入式系统
+	例子：机顶盒、路由器、电视
+移动端系统
+	Android（Linux内核）		(JAVA、C)
+	IOS			object——c	(c语言)
+				swift()
+
+
+缺陷跟踪管理系统-禅道的学习
+	服务器的搭建步骤
+		1\搭建服务器操作系统
+			服务器系统种类:Linux\
+		2\搭建中间服务器
+		3\搭建数据库服务器
+		4\布置禅道系统
+
+	服务器的种类
+
+		中间件服务器
+			接受并解析客户端发送过来的请求,并查找静态资源
+		应用程序服务器
+			开发写的代码
+		数据库服务器(MYSQL\oracle\MongoDB\ms\sql)
+			存储网站或用户的真实数据
+		禅道=使用PHP+MYSQL研发的系统
+
+Linux中的文件分类
+	使用树型目录进行文件分类:Linux中的根目录中,含有不同文件目录,根据用户等级不一样,能进入到根目录中的不同文件夹.组成电脑的硬件又移动到一个文件夹dev.环境变量有一个文件夹(etc).根据用户可以使用的命令sbin。普通用户使用的指令，普通用户所在的家目录home，根据用户所在家目录root，media，程序运行所产生的临时数据var，程序的安装路径usr，用户名-media-run-媒体设备，外置存储对象mnt，临时目录tmp
+
+
+
+
+安装centos服务器系统
+	centos使用目录结构
+	采用虚拟机切割磁盘空间
+		1\1\在宿主机上安装虚拟机服务
+			实现在宿主机与虚拟机中的文件共享
+				1\使用vwaveTools与主机之间分享文件
+
+虚拟化服务(虚拟机-借助宿主机的资源运行)
+
+
