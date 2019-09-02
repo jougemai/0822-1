@@ -1,0 +1,112 @@
+step one
+	web基础-1D-网络协议
+	数据库-关系型数据库-sql语句-通用-4D
+		非关系型数据库 redis
+	测试理论
+	web功能项目实战-金融项目
+step two
+	web/UI--easy
+	APP AUTO
+	接口自动化---diffcult-but it's improtant for the company,
+	-----------
+step three
+	--面向对象的思想---与面向过程更不一样的一种编程方式,对于思考程序的方式完全不一样.
+	-----------
+	unittest单元测试框架
+	pytest框架-接口自动化--important
+step four
+	jenkins
+	性能测试
+	10天企业项目
+	雁联
+
+查漏补缺
+	ll-h 显示文件大小
+	Linux命令
+		面试时注意别说在虚拟机中输入Linux命令	
+	vi编辑器的三种模式
+		命令模式(一般模式)
+		编辑(插入)
+		底行(末行)
+		模式切换
+			不能直接从编辑模式切换到底行模式
+			从命令模式切换到插入模式的方法间的区别
+				I  光标所在行的行首插入
+				i  光标所在位置前插入
+				O  在当前光标所在行上一行插入
+				o  在当前光标所在行下一行插入
+				S  删除光标所选在行,并在此行输入
+				s  删除光标所选中的字符,并在此位置前插入
+				A  光标所在行的行末插入
+				a  光标所在位置后插入
+			在底行模式中,能对VI编辑器的配置做编辑
+				set number/nonumber  行号
+			命令模式下的采用快捷操作
+				working.部署测试环境时,需要修改系统配置,提高工作效率的快捷键
+					u    撤销
+					yy   复制当前光标所在行的所有文字
+					nyy  3yy 从当前光标所在行后多少行复制(包括当前行)
+					p    粘贴
+					np   3p 粘贴多少次选中的行(3次)
+					dd   delete 删除当前光标所在行
+					ndd  从当前光标所在行开始删除(包括当前光标所在行)
+					G    跳转到最后一行行首
+					gg   跳转到第一行行首
+					ggn  跳转到第N行
+					方向键
+						H对应方向键左
+						L对应方向键右
+						j对应方向键上
+						K对应方向键下
+					查找/替换
+						全文
+							在底行模式下输入%s/(被替换内容)/(替换内容)/(替换模式-g-全文替换)
+						/	向下查找,按n(next)继续
+						?	向上查找,按n(next)继续
+					追加/替换
+						echo 
+							格式: echo 文件/内容 > 文件
+							> 将某些东西覆盖(重定项输出)到文件b
+							>>将某些东西追加到文件B
+	压缩与解压缩			
+		tar
+			c create 创建
+			z 压缩
+			v 显示压缩百分比
+			f 压缩成一个文件
+			x 解压
+		zip 
+			在压缩时,要加上'-r'  zip -r 压缩文件名.zip 需要压缩的文件/目录
+			解压时的命令为 unzip
+		gzip
+			压缩:gzip -6 需要压缩的文件名(-6为需要压缩的级别,不输入的话默认是6,最高9)
+			解压:gzip -d 解压的文件
+	服务相关
+		ssh win 与Linux间的服务协议
+			d 在服务系统中运行的进程(daemon)
+			service 服务
+			server 服务器
+			查看ssh服务的状态(启动\停止)
+				service ssh status
+			启动ssh服务
+				service ssh star
+			关闭ssh服务
+				kill -9 (服务进程的ID号)
+				service ssh stop
+			重启ssh服务
+				service ssh restart
+		防火墙
+			IPtables
+				service (服务名) star\stop\restart\status
+		重启网卡/网络
+			service network star\stop\restart\status
+	进程
+	基于VMware的功能
+		克隆 
+		快照 为系统创建还原点,有利于在找不到系统问题时能快速还原
+	MYSQL
+		Linux安装方法
+			1\源码安装
+			2\离线安装包
+			3\在线安装MYSQL-=centos独有
+				yum install -y mysql-server
