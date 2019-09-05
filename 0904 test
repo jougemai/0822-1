@@ -1,0 +1,132 @@
+0904 test
+1\查看进程 top ps-h ps-aux      f ps -ef
+2\查看端口号 masknet mysql      f netstat -an |grep 3306
+3\查看磁盘使用情况               f df -h
+4\查看文件大小 ll -sh文件只读属性下的大小   pu -h文件在磁盘中的物理大小    f  ll -h   du -sh
+5\chkconfig --list |grep iptable      chkconfig --level 35 iptable off
+6\service iptable stop
+7\service mysqld restart
+8\service httpd stop
+9\在图形化界面修改   在 vi /ect/sysconfig/network-script/ifcfg-eth0 中修改  
+10\useradd -u 501 beijing
+11\groupadd -g 6666 zhongguo
+12\passwd beijing
+13\su beijing
+14\usermod -sei beijing / usermod -** beijing f usermod -L beijing (Lock)/usermod -U beijing (Unlock)
+15\usermod -aG zhongguo beijing / usermod -g 6666 beijing 
+16\把用户从组中删除 f gpasswd -d beijing zhongguo 
+17\id beijing
+18\chown beijing 1.txt
+19\chowm :zhongguo zelin f chowm :zhongguo zelin/ 
+20\chmod u=rw,g=x,o=rwx changcheng.txt /chmod 617 changcheng.txt
+21\	gzip *.txt/ 
+	gzip -d zelin.gzip  
+22\cat tac  head tail less more
+
+
+
+
+面试  
+工作中用过的linux命令
+	先回答进程类的命令\服务\系统管理
+linux上部署过测试环境么,怎么部署,部署过程遇到的问题怎么解决
+	开发提交测试,从cvn获取安装包,根据开发提供的<安装指导文档>的要求,开始搭建测试环境,用ftp工具吧安装包,通过tar -zxvf命令解压,完成后,进入安装目录下,使用./zbox start命令启动安装文件,
+	在搭建过程中时遇到了什么问题(简要描述),分析原因,怎么解决(详细)
+	jenkins持续集成环境 怎么部署
+
+emp-员工表
+dept 部门表
+数据库
+关系型数据库
+	甲骨文
+		Oracle 闭源---按照linsens
+		mysql (被甲骨文收购)开源
+			最高权限:sys---DBA数据库管理员--进入公司
+			一般身份:system
+		(mysql在centos7安装时要先卸载marial)
+	IBM  db2--金蝶,用友
+	微软  sqlserver
+非关系型数据库--redis
+数据库的专业词汇
+	字段名-首行的的名字,首行第一个-字段一(列名一)\首行第二个-字段二(列名二)
+	列值-首列的名字-首列第一个-列值一\首列第二个-列值二
+数据库的数据类型
+	char(在此输入字符长度)定长字符型,输入的字符长度只能这么多
+	varchar2()可变长字符型,输入的字符长度随意
+		char(),varchar2()区别:
+			char()在输入的数据过少的时候,比较占用空间,但查找速度快
+			varchar2(),自动分配系统空间,但查找速度慢(注意,在mysql中时varchar())
+	date
+	number(m,n)m-总长度=整数部分+小数部分,n-小数部分的小数
+六大约束
+	主键约束
+		某一类数据,不能重复,同时不能为空
+	唯一约束
+		unqiue 不能重复,可以为空,不能为  外键
+	检查约束
+		check 限制,只能是在哪一个区间中选择
+	默认约束
+		default() 在不填写任何数据时,系统默认是什么约束
+	外键约束---表与表之间的联系
+		mysql foreignkey() refeneces(参考哪个表的什么字段)()----mysql中的格式
+		基于其他表格中的主键拥有的参数.该表格中的外键只能输入已关联的其他表格的主键的参数
+		Oracle--refenences 哪个表格(哪个字段)
+	非空约束
+		commission 允许为空或不允许为空
+		is null
+		is not null
+oracle使用(下列笔记中注意,空格都是有用)
+	创建用户--create user (用户名,不能数字开头,不能纯数据) identified by (密码)
+	授予用户权限
+	收回用户权限
+	创建表
+	create table 表名字(
+	字段名1(必填项,非中文) 数据类型(必填) 约束(非必填项)
+	例如: mlsh char(20) primary key(),----(此处逗号表示进入到下一行)
+
+	);
+
+ddl dcl-数据定义语言 
+sql的分层
+	ddl-数据定义语言
+		create,alter(修改) drop rename turncate
+		添加列
+			alter table 表名 add 列名及属性;(此时,在表中,添加了该列名及属性)
+		删除列(空列才能删除)
+			alter table emp drop column 列名 ;
+		修改列的名字
+			alter table emp rename column 原列名 to 新列名;
+		修改列属性(在有数据的情况下,不能修改为其他数据类型,或者将字符大小改小)
+			alter table emp modify 列名 修改后的属性
+	dml层-对表中的数据进行操作的语言
+		insert update delete(因为select不涉及到数据的修改,故select不属于dml层)
+		commit rollback
+		查找
+			select * from 表名;
+			查找表面中的所有东西(*代表所`有的列的值)
+			查询指定的列
+				select 列名1,列名2,列名3 from 表名
+			为列起一个别名(可以是中文)
+				select 列名 as (你需要的名字) from 表名
+				或 select 列名 (你需要的名字) from 表名
+			为表起一个别名(本质上只是不显示原来的列名,显示了其他的列名并显示该列的数据而已)
+				select * from 表名 另一个表名
+		增加
+			全量添加
+				insert into 表名 value(列值1,...,列值N);	(一次过从左到右,添加值到表中)
+				commit 将F8后的程序,将数据提交到库.
+				rollback 回滚,将还未提交的数据回滚
+				若重复插入,即提交到第二行,以此类推
+			部分添加
+				insert into 表面 (对应的列名1,对应的列名2) values (对应的列名1的值,对应的列名2的值)
+		改
+			改一个
+				update 表名 set 列名='新列值',列名2='新列值' where[条件]
+		删
+			truncate只能删除表内的数据,删除速度快,不能搭配where,全盘删除,作用在ddl层,删除后,只剩下表头
+				truncate table 表名
+			delete 只能删除表内的数据,能搭配where 
+				delete from 表名 where
+			drop 删除表头+数据
+			
+

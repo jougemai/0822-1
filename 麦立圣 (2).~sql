@@ -1,0 +1,87 @@
+create table classinfo(
+c_id number(5) primary key,
+c_type varchar2(4)  check (c_type in ('UI','开发','测试')),
+c_position varchar2(20) default('大冲国际'),
+c_starttime date,
+c_status varchar2(4) check(c_status in ('在读','毕业'))
+);
+
+create table studentinfo(
+  s_no number(5) primary key,
+  s_name varchar2(20),
+  s_sex varchar2(20) check (s_sex in('男','女')),
+  s_age number(20) check (s_age between 18 and 35),
+  s_tel varchar(11),
+  s_xueli varchar2(20) check (s_xueli in('本科','专科','研究生')),
+  s_spac varchar2(20),
+  s_school varchar2(20),
+  s_address varchar2(20) default('地址不详'),
+  s_jingyan varchar2(20) default('无'),
+  s_intime date,
+  s_class number(5) references classinfo(c_id)
+);
+
+create table teacherinfo(
+t_id number(5) primary key ,
+t_name varchar2(10) not null,
+t_spac varchar2(10) not null ,
+t_time number(3)
+);
+
+create table subject(
+sj_id number(5) primary key ,
+sj_name varchar2(6) ,
+sj_time number(4) check (sj_time > 5),
+sj_teacher number(5) references teacherinfo(t_id)
+);
+ 
+create table testresule(
+tst_id number(6) primary key ,
+tst_subjectid number(5) references subject(sj_id),
+tst_sid number(5) references studentinfo(s_no),
+tst_score number(4,2)  ,
+tst_status char(4) check (tst_status in('正常','补考')),
+tst_date number(5) 
+);
+
+create table studytrack(
+trk_id number(5) primary key ,
+trk_sid number(5) references studentinfo(s_no),
+trk_subjectid number(5) references subject(sj_id),
+trk_intime date ,
+trk_attendance varchar2(6) check (trk_attendance in('正常','迟到','早退','旷课','请假')),
+trk_biaoxian varchar2(2) check (trk_biaoxian in('优','良','差')),
+trk_renwu varchar2(2) check ( trk_renwu in ('优','良','差'))
+);
+
+
+
+
+insert into classinfo  (c_id,c_type,c_position,c_starttime,c_status) values('15','UI',null,'17-6月-2007','在读');
+
+alter table classinfo modify c__id number(5);
+
+select * from classinfo;
+
+rollback;
+alter table classinfo rename column "胡闹" to c_id;
+alter table classinfo add c_bb number(2);
+alter table classinfo drop column c_bb;
+
+select c_id  "bb"  from classinfo;
+alter table classinfo modify  c_position default('未知');
+
+ 
+
+update classinfo set c_position='广东省' where c_id=12;
+delete from classinfo;
+truncate table classinfo;
+drop table studentinfo;
+drop table classinfo;
+
+alter user scott account unlock;
+select * from emp;
+select * from dept;
+select * from salgrade;
+select * from bonus;
+sf bonus;

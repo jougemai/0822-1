@@ -1,0 +1,19 @@
+oracle 
+查询(默认升序查询)
+	降序查询
+		select * from emp order by sal;(排序的指令放在最后,无论语句多次)
+		查询表格emp的所有值,根据列值sal中的值对表emp进行从小往大的排序
+	length -返回字符长度值-可用在where语句中
+		lenth(name)=?
+	like-模糊查找
+		在模糊查找中,%代表多个随意字符,_代表一个随意字符
+		例如%一,查找以一结尾的字符,
+		_如,查找如字前面只有一个字符的字符
+		技巧,如查询字符长度为5的字符,可写成,where emp like'_____'
+	子查询
+		多层嵌套关系
+		将a的结果放到b的判断中
+	去重
+		distinct -----select distinct job from emp;(distinct永远放到select后面)
+
+select sal from table where ename='allen'
