@@ -1,0 +1,4 @@
+fic={'mlsh1222':'mlsh2222','mlsh3111':'mlsh4111'}
+print(fic)
+with open('D:\\2.txt','w') as f:
+	f.write(str(fic))
